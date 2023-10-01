@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") %>
+<div class="nav">
+  <a href="/">Today</a>
+  <a href="/work">Work</a>
+</div>
+<div class="content">
+  <div class="date">
+    <h1>Work</h1>
+  </div>
+  <div class="data">
+    <form action="/work" method="post">
+      <input
+        class="input-box"
+        type="text"
+        placeholder="Enter task..."
+        name="work"
+        required
+      />
+      <input class="submit-button" type="submit" value="+" />
+    </form>
+
+    <ul>
+      <% if(locals.works){works.map((work,id)=> { %>
+
+      <li class="todo-item"><input type="checkbox" name="" id=<%=id %> /><span class="todo-item-text"><%= work %></span></li>
+      <% })} %>
+    </ul>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>
